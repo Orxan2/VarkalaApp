@@ -215,16 +215,10 @@
                     <div class="row mt-5 pt-75">
                         <div class="col-12 col-md-8">
                             <ul class="row product-list list-group list-group-horizontal">
-                                <li class="col-auto list-group-item border-0">
-                                    <a href="#" class="active">
-                                        All
-                                        Products
-                                    </a>
-                                </li>
-                                <li class="col-auto list-group-item border-0"><a href="#">Chairs</a></li>
-                                <li class="col-auto list-group-item border-0"><a href="#">Books</a></li>
-                                <li class="col-auto list-group-item border-0"><a href="#">Clothes</a></li>
-                                <li class="col-auto list-group-item border-0"><a href="#">Accessories</a></li>
+                                @foreach (ProductCategory productCategory in Model.ProductCategories)
+                                {
+                                <li class="col-auto list-group-item border-0"><a href="#" class="@productCategory.Active">@productCategory.Category</a></li>
+                                }
                             </ul>
                         </div>
                         <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-end">

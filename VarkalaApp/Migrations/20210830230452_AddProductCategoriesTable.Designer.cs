@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VarkalaApp.DAL;
 
 namespace VarkalaApp.Migrations
 {
     [DbContext(typeof(VarkalaContext))]
-    partial class VarkalaContextModelSnapshot : ModelSnapshot
+    [Migration("20210830230452_AddProductCategoriesTable")]
+    partial class AddProductCategoriesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,9 +53,6 @@ namespace VarkalaApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Active")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");

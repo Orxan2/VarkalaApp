@@ -15,5 +15,6 @@ namespace VarkalaApp.DAL
 
        public DbSet<Slider> Sliders { get; set; }
        public DbSet<Product> Products { get; set; }
+       public DbSet<ProductCategory> ProductCategories { get; set; }
     }
 }
