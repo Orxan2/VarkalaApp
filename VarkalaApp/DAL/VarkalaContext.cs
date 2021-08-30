@@ -13,6 +13,6 @@ namespace VarkalaApp.DAL
         {
         }
 
-        DbSet<Slider> Sliders { get; set; }
+       public DbSet<Slider> Sliders { get; set; }
     }
 }

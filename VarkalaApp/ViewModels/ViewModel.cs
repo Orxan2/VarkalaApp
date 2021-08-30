@@ -8,6 +8,6 @@ namespace VarkalaApp.ViewModels
 {
     public class ViewModel
     {
-        public Slider Slider { get; set; }
+        public List<Slider> Sliders { get; set; }
     }
 }

@@ -1,23 +1,31 @@
-﻿    <main>
-        <section id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" class="active" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-            </div>
-            <div class="container carousel-inner">
-                <div class="row carousel-item active">
+﻿@model ViewModel;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" class="active" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+        <div class="container carousel-inner">
+            @foreach (Slider slider in Model.Sliders)
+            {               
+                <div class="row carousel-item @slider.Active">
                     <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center">
                         <div class="content">
-                            <p class="shop-text">Time Is Almost up</p>
-                            <h1 class="shop-title">Design clocks on sale</h1>
-                            <a class="btn shop-btn">Start Shopping</a>
+                            <p class="shop-text">@slider.FirstSlogan</p>
+                            <h1 class="shop-title">@slider.SecondSlogan</h1>
+                            <p class="shop-small-text">@slider.ThirdSlogan</p>
+                            <a class="btn shop-btn">@slider.SloganButon</a>
                         </div>
                         <div class="background-container background-container--gray">
-                            <img src="~/images/clock-transparent.png" width="330" height="500" alt="" />
+                            <img src="~/images/@slider.Image" width="330" height="500" alt="" />
                             <svg class="d-none d-md-block" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
                                  id="blob-shape-3">
                                 <path d="M456.5 103.8c39.6 42.8 60.2 98.6 63.7 152.4 3.6 53.7-10 105.5-39.1 141.3-29.1 35.8-73.6 55.6-117.4 67.1-43.9 11.4-87 14.6-120.7-.8s-58.1-49.4-87.1-86.8c-29-37.5-62.6-78.4-57.4-113.4 5.1-35 49-64 89-106.8 40.1-42.8 76.3-99.3 123.6-112.6C358.5 31 417 60.9 456.5 103.8z">
@@ -26,626 +34,583 @@
                         </div>
                     </div>
                 </div>
-                <div class="row carousel-item">
-                    <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center">
-                        <div class="content">
-                            <p class="shop-text">Our all-time favourites</p>
-                            <h1 class="shop-title">Black & Whihte</h1>
-                            <p class="shop-small-text">
-                                The bedding was hardly able to cover it and seemed ready to slide off
-                                any moment. His many legs, pit
-                            </p>
-                            <a class="btn shop-btn">Discover more</a>
-                        </div>
-                        <div class="background-container background-container--pink">
-                            <img src="~/images/chair2-transparent.png" width="330" height="500" alt="" />
-                            <svg class="d-none d-md-block" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
-                                 id="blob-shape-3">
-                                <path d="M456.5 103.8c39.6 42.8 60.2 98.6 63.7 152.4 3.6 53.7-10 105.5-39.1 141.3-29.1 35.8-73.6 55.6-117.4 67.1-43.9 11.4-87 14.6-120.7-.8s-58.1-49.4-87.1-86.8c-29-37.5-62.6-78.4-57.4-113.4 5.1-35 49-64 89-106.8 40.1-42.8 76.3-99.3 123.6-112.6C358.5 31 417 60.9 456.5 103.8z">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
+            }
+        </div>
+        <div class="big-path">
+            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" id="blob-shape">
+                <path d="M419.4 180.5c43 43.1 90.8 81.3 90.2 118.9C509 337 460 374 417 416c-43 42-80 89-124.9 96.9-44.9 7.9-97.7-23.3-141.2-65.3-43.5-42-77.7-94.8-83.8-153.7-6.2-59 15.8-124 59.3-167.2 43.5-43.1 108.5-64.4 160.2-51 51.6 13.4 89.8 61.6 132.8 104.8z">
+                </path>
+            </svg>
+        </div>
+    </section>
 
-                </div>
-                <div class="row carousel-item">
-                    <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center">
-                        <div class="content">
-                            <p class="shop-text">Our all-time favourites</p>
-                            <h1 class="shop-title">Boxxez</h1>
-                            <p class="shop-small-text">
-                                The bedding was hardly able to cover it and seemed ready to slide off
-                                any moment. His many legs, pit
-                            </p>
-                            <a class="btn shop-btn">Discover more</a>
-                        </div>
-                        <div class="background-container background-container--gold">
-                            <img src="~/images/boxes-transparent.png" width="330" height="500" alt="boxes" />
-                            <svg class="d-none d-md-block" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"
-                                 id="blob-shape-3">
-                                <path d="M456.5 103.8c39.6 42.8 60.2 98.6 63.7 152.4 3.6 53.7-10 105.5-39.1 141.3-29.1 35.8-73.6 55.6-117.4 67.1-43.9 11.4-87 14.6-120.7-.8s-58.1-49.4-87.1-86.8c-29-37.5-62.6-78.4-57.4-113.4 5.1-35 49-64 89-106.8 40.1-42.8 76.3-99.3 123.6-112.6C358.5 31 417 60.9 456.5 103.8z">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="big-path">
-                <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" id="blob-shape">
-                    <path d="M419.4 180.5c43 43.1 90.8 81.3 90.2 118.9C509 337 460 374 417 416c-43 42-80 89-124.9 96.9-44.9 7.9-97.7-23.3-141.2-65.3-43.5-42-77.7-94.8-83.8-153.7-6.2-59 15.8-124 59.3-167.2 43.5-43.1 108.5-64.4 160.2-51 51.6 13.4 89.8 61.6 132.8 104.8z">
-                    </path>
-                </svg>
-            </div>
-        </section>
-
-        <section id="populars">
-            <div class="container">
-                <div class="row my-5">
-                    <div class="col-12 col-xl-8">
-                        <div class="heading">
-                            <p class="heading__text heading__text--space fw-bold mb-0">TOP CHOICES</p>
-                            <h2 class="heading__title fw-bold">Popular this week</h2>
-                            <p class="heading__text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-4 py-5">
-                        <div class="popular-card">
-                            <div class="popular-card__img">
-                                <img src="~/images/popular1.jpg" class="w-100" alt="book" />
-                            </div>
-                            <div class="popular-card__body mx-5">
-                                <h3 class="popular-card__title">Furniture</h3>
-                                <h3 class="popular-card__title">source</h3>
-                                <h3 class="popular-card__title">book</h3>
-                                <p class="popular-card__text">$39.90</p>
-                                <a href="#" class="btn popular-card__btn">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-7 offset--md-1 py-5">
-                        <div class="popular-card d-flex">
-                            <div class="popular-card__body popular-card__body--transform my-5 py-5">
-                                <h3 class="popular-card__title">Norwegg</h3>
-                                <h3 class="popular-card__title">design</h3>
-                                <h3 class="popular-card__title">chair</h3>
-                                <p class="popular-card__text">$139.90</p>
-                                <a href="#" class="btn popular-card__btn">Shop now</a>
-                            </div>
-                            <div class="popular-card__img">
-                                <img src="~/images/popular2.jpg" width="540" alt="chair" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-7 py-5">
-                        <div class="popular-card d-flex">
-                            <div class="popular-card__body my-5 py-5">
-                                <h3 class="popular-card__title">Sunn</h3>
-                                <h3 class="popular-card__title">Clock</h3>
-                                <p class="popular-card__text">$89.90</p>
-                                <a href="#" class="btn popular-card__btn">Shop now</a>
-                            </div>
-                            <div class="popular-card__img">
-                                <img src="~/images/popular3.jpg" width="540" alt="chair" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 offset-md-1 py-5">
-                        <div class="popular-card py-lg-5 my-lg-5">
-                            <div class="popular-card__img">
-                                <img src="~/images/popular4.jpg" class="w-100" alt="book" />
-                            </div>
-                            <div class="popular-card__body mx-5">
-                                <h3 class="popular-card__title">Accessory</h3>
-                                <h3 class="popular-card__title">boxes</h3>
-                                <p class="popular-card__text">$29.90</p>
-                                <a href="#" class="btn popular-card__btn">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-3 py-5">
-                        <div class="popular-card">
-                            <div class="popular-card__img">
-                                <img src="~/images/popular5.jpg" class="w-100" alt="book" />
-                            </div>
-                            <div class="popular-card__body mx-4">
-                                <h3 class="popular-card__title">Swiss</h3>
-                                <h3 class="popular-card__title">Minutes</h3>
-                                <h3 class="popular-card__title">Black</h3>
-                                <p class="popular-card__text">$149.90</p>
-                                <a href="#" class="btn popular-card__btn">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-8 offset-md-1 py-5">
-                        <div class="popular-card d-flex">
-                            <div class="popular-card__body popular-card__body--transform my-5 py-5">
-                                <h3 class="popular-card__title">Korona</h3>
-                                <h3 class="popular-card__title">dining</h3>
-                                <h3 class="popular-card__title">room chair</h3>
-                                <p class="popular-card__text">$39.90</p>
-                                <a href="#" class="btn popular-card__btn">Shop now</a>
-                            </div>
-                            <div class="popular-card__img">
-                                <img src="~/images/popular6.jpg" class="w-100" alt="chair" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="time" class="my-5">
-            <div class="container">
-                <div class="row py-4">
-
-                    <div class="col-12 col-lg-6">
-
-                        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" id="blob-shape-2">
-                            <path d="M430.6 143.2c29.1 25.5 36.4 75.8 32.6 118.6-3.7 42.7-18.5 78-34.8 118.2-16.3 40.2-34 85.3-69.8 111.5-35.7 26.2-89.4 33.4-128.3 13.4-38.9-20-63-67.2-85.8-112.4-22.9-45.2-44.5-88.4-46.7-137.3-2.3-48.9 14.8-103.6 51.7-127.7 36.9-24.2 93.7-17.8 147.5-14.3 53.8 3.6 104.6 4.4 133.6 30z"
-                                  style="fill:var(--layer1, #8ed1fc)" fill="#8ed1fc"></path>
-                        </svg>
-
-                        <div class="discount">
-                            <p class="discount__text">DEAL OF THE WEEK</p>
-                            <h1 class="discount__heading">Black and white Nordegg chairs</h1>
-                            <div class="discount__price py-3">
-                                <del class="me-2">$129.00</del>
-                                <span class="ms-2">$79.00</span>
-                            </div>
-                            <p class="discount__percent p-3 rounded">$50 off</p>
-                            <div class="discount__time timer bg-white px-5 py-4 mb-4" id="countdown">
-                                <div class="row justify-content-between align-content-start">
-                                    <div class="col-6 col-sm-3 text-center mb-4 mb-sm-0">
-                                        <h6 class="h4 mb-2 days fw-bold">14</h6><span class="text-muted">days</span>
-                                    </div>
-                                    <div class="col-6 col-sm-3 text-center mb-4 mb-sm-0">
-                                        <h6 class="h4 mb-2 hours fw-bold">22</h6><span class="text-muted">hours</span>
-                                    </div>
-                                    <div class="col-6 col-sm-3 text-center">
-                                        <h6 class="h4 mb-2 minutes fw-bold">41</h6><span class="text-muted">minutes</span>
-                                    </div>
-                                    <div class="col-6 col-sm-3 text-center">
-                                        <h6 class="h4 mb-2 seconds fw-bold">30</h6><span class="text-muted">seconds</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="" class="btn discount__btn">shop now</a>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-lg-6 py-5 py-lg-0">
-                        <div class="image-box d-flex justify-content-center">
-                            <img src="~/images/chair2-transparent.png" width="300" height="450" class=""
-                                 alt="chair-transparent" />
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="products">
-            <div class="container">
-                <div class="row choices my-5">
-                    <div class="col-12 col-md">
-                        <h2 class="fw-bold">New Arrivals</h2>
-                        <p>
-                            One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed
-                            into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he
-                            could see his brown belly, slightly domed and divided by arches into stiff sections
+    <section id="populars">
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-12 col-xl-8">
+                    <div class="heading">
+                        <p class="heading__text heading__text--space fw-bold mb-0">TOP CHOICES</p>
+                        <h2 class="heading__title fw-bold">Popular this week</h2>
+                        <p class="heading__text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
                         </p>
-                        <div class="row mt-5">
-                            <div class="col-12 col-md-8">
-                                <ul class="row product-list list-group list-group-horizontal">
-                                    <li class="col-auto list-group-item border-0">
-                                        <a href="#" class="active">
-                                            All
-                                            Products
-                                        </a>
-                                    </li>
-                                    <li class="col-auto list-group-item border-0"><a href="#">Chairs</a></li>
-                                    <li class="col-auto list-group-item border-0"><a href="#">Books</a></li>
-                                    <li class="col-auto list-group-item border-0"><a href="#">Clothes</a></li>
-                                    <li class="col-auto list-group-item border-0"><a href="#">Accessories</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-end">
-                                <a href="" class="btn head-link"><small>All Products</small></a>
-                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 py-5">
+                    <div class="popular-card">
+                        <div class="popular-card__img">
+                            <img src="~/images/popular1.jpg" class="w-100" alt="book" />
+                        </div>
+                        <div class="popular-card__body mx-5">
+                            <h3 class="popular-card__title">Furniture</h3>
+                            <h3 class="popular-card__title">source</h3>
+                            <h3 class="popular-card__title">book</h3>
+                            <p class="popular-card__text">$39.90</p>
+                            <a href="#" class="btn popular-card__btn">Shop now</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="row my-5">
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img">
-                                <img src="~/images/product-1.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover1.jpg" class="hoveredimage" alt="product" />
-                                <small class="fresh">Fresh</small>
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Norwegg Chair</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-12 col-md-7 offset--md-1 py-5">
+                    <div class="popular-card d-flex">
+                        <div class="popular-card__body popular-card__body--transform my-5 py-5">
+                            <h3 class="popular-card__title">Norwegg</h3>
+                            <h3 class="popular-card__title">design</h3>
+                            <h3 class="popular-card__title">chair</h3>
+                            <p class="popular-card__text">$139.90</p>
+                            <a href="#" class="btn popular-card__btn">Shop now</a>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-2.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover2.jpg" class="hoveredimage" alt="product" />
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Book</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-3.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover3.jpg" class="hoveredimage" alt="product" />
-                                <small class="sale">Sale</small>
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Another chair</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-4.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover4.jpg" class="hoveredimage" alt="product" />
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Your new chair</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-5.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover5.jpg" class="hoveredimage" alt="product" />
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Clock</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-6.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover6.jpg" class="hoveredimage" alt="product" />
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Clock</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-7.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover7.jpg" class="hoveredimage" alt="product" />
-                                <small class="sold">Sold out</small>
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Accessory box</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-card">
-                            <div class="product-card__img position-relative">
-                                <img src="~/images/product-8.jpg" class="firstimage" alt="product" />
-                                <img src="~/images/product-hover8.jpg" class="hoveredimage" alt="product" />
-                                <div class="addbasket">
-                                    <a class="btn">Add to cart</a>
-                                    <div class="addbasket__icons">
-                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-card__body">
-                                <a class="fw-bolder">Beige</a>
-                                <div class="price">
-                                    <small>$40.00</small>
-                                    <div class="stars">
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class=""><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                        <span class="gray"><i class="fas fa-star"></i></span>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="popular-card__img">
+                            <img src="~/images/popular2.jpg" width="540" alt="chair" />
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="row">
+                <div class="col-12 col-md-7 py-5">
+                    <div class="popular-card d-flex">
+                        <div class="popular-card__body my-5 py-5">
+                            <h3 class="popular-card__title">Sunn</h3>
+                            <h3 class="popular-card__title">Clock</h3>
+                            <p class="popular-card__text">$89.90</p>
+                            <a href="#" class="btn popular-card__btn">Shop now</a>
+                        </div>
+                        <div class="popular-card__img">
+                            <img src="~/images/popular3.jpg" width="540" alt="chair" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 offset-md-1 py-5">
+                    <div class="popular-card py-lg-5 my-lg-5">
+                        <div class="popular-card__img">
+                            <img src="~/images/popular4.jpg" class="w-100" alt="book" />
+                        </div>
+                        <div class="popular-card__body mx-5">
+                            <h3 class="popular-card__title">Accessory</h3>
+                            <h3 class="popular-card__title">boxes</h3>
+                            <p class="popular-card__text">$29.90</p>
+                            <a href="#" class="btn popular-card__btn">Shop now</a>
+                        </div>
+                    </div>
+                </div>
 
-        <section id="summer" class="my-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="svg-box">
-                            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" id="blob-shape">
-                                <path d="M419.4 180.5c43 43.1 90.8 81.3 90.2 118.9C509 337 460 374 417 416c-43 42-80 89-124.9 96.9-44.9 7.9-97.7-23.3-141.2-65.3-43.5-42-77.7-94.8-83.8-153.7-6.2-59 15.8-124 59.3-167.2 43.5-43.1 108.5-64.4 160.2-51 51.6 13.4 89.8 61.6 132.8 104.8z">
-                                </path>
-                            </svg>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-3 py-5">
+                    <div class="popular-card">
+                        <div class="popular-card__img">
+                            <img src="~/images/popular5.jpg" class="w-100" alt="book" />
                         </div>
-                        <div class="slogan">
-                            <h1 class="slogan__heading">Summer Sales</h1>
-                            <p class="slogan__text">Our biggest sales this year — up to 60% off!</p>
-                            <a href="" class="btn slogan__btn">start shopping</a>
+                        <div class="popular-card__body mx-4">
+                            <h3 class="popular-card__title">Swiss</h3>
+                            <h3 class="popular-card__title">Minutes</h3>
+                            <h3 class="popular-card__title">Black</h3>
+                            <p class="popular-card__text">$149.90</p>
+                            <a href="#" class="btn popular-card__btn">Shop now</a>
                         </div>
-                        <img src="~/images/chair-transparent.png" width="250" height="450" class="d-none d-md-block"
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 offset-md-1 py-5">
+                    <div class="popular-card d-flex">
+                        <div class="popular-card__body popular-card__body--transform my-5 py-5">
+                            <h3 class="popular-card__title">Korona</h3>
+                            <h3 class="popular-card__title">dining</h3>
+                            <h3 class="popular-card__title">room chair</h3>
+                            <p class="popular-card__text">$39.90</p>
+                            <a href="#" class="btn popular-card__btn">Shop now</a>
+                        </div>
+                        <div class="popular-card__img">
+                            <img src="~/images/popular6.jpg" class="w-100" alt="chair" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="time" class="my-5">
+        <div class="container">
+            <div class="row py-4">
+
+                <div class="col-12 col-lg-6">
+
+                    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" id="blob-shape-2">
+                        <path d="M430.6 143.2c29.1 25.5 36.4 75.8 32.6 118.6-3.7 42.7-18.5 78-34.8 118.2-16.3 40.2-34 85.3-69.8 111.5-35.7 26.2-89.4 33.4-128.3 13.4-38.9-20-63-67.2-85.8-112.4-22.9-45.2-44.5-88.4-46.7-137.3-2.3-48.9 14.8-103.6 51.7-127.7 36.9-24.2 93.7-17.8 147.5-14.3 53.8 3.6 104.6 4.4 133.6 30z"
+                              style="fill:var(--layer1, #8ed1fc)" fill="#8ed1fc"></path>
+                    </svg>
+
+                    <div class="discount">
+                        <p class="discount__text">DEAL OF THE WEEK</p>
+                        <h1 class="discount__heading">Black and white Nordegg chairs</h1>
+                        <div class="discount__price py-3">
+                            <del class="me-2">$129.00</del>
+                            <span class="ms-2">$79.00</span>
+                        </div>
+                        <p class="discount__percent p-3 rounded">$50 off</p>
+                        <div class="discount__time timer bg-white px-5 py-4 mb-4" id="countdown">
+                            <div class="row justify-content-between align-content-start">
+                                <div class="col-6 col-sm-3 text-center mb-4 mb-sm-0">
+                                    <h6 class="h4 mb-2 days fw-bold">14</h6><span class="text-muted">days</span>
+                                </div>
+                                <div class="col-6 col-sm-3 text-center mb-4 mb-sm-0">
+                                    <h6 class="h4 mb-2 hours fw-bold">22</h6><span class="text-muted">hours</span>
+                                </div>
+                                <div class="col-6 col-sm-3 text-center">
+                                    <h6 class="h4 mb-2 minutes fw-bold">41</h6><span class="text-muted">minutes</span>
+                                </div>
+                                <div class="col-6 col-sm-3 text-center">
+                                    <h6 class="h4 mb-2 seconds fw-bold">30</h6><span class="text-muted">seconds</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" class="btn discount__btn">shop now</a>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-lg-6 py-5 py-lg-0">
+                    <div class="image-box d-flex justify-content-center">
+                        <img src="~/images/chair2-transparent.png" width="300" height="450" class=""
                              alt="chair-transparent" />
                     </div>
-
                 </div>
-            </div>
-        </section>
 
-        <section id="info" class="my-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="delivery-time-1">
-                                <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
-                                      d="M62 46v-5l-8-7h-8" stroke-linejoin="round" stroke-linecap="round"
-                                      style="stroke:var(--layer1, #202020)"></path>
-                                <circle data-name="layer2" cx="24" cy="54" r="4" fill="none" stroke="#202020"
-                                        stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
-                                        style="stroke:var(--layer1, #202020)"></circle>
-                                <circle data-name="layer2" cx="54" cy="54" r="4" fill="none" stroke="#202020"
-                                        stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
-                                        style="stroke:var(--layer1, #202020)"></circle>
-                                <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
-                                      d="M50 54H28m-8 0h-4v-8h46v8h-4M24.5 24H46v22m-30 0V29.8M2 38h6m-2 8h2"
-                                      stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)">
-                                </path>
-                                <circle data-name="layer1" cx="14" cy="18" r="12" fill="none" stroke="#202020"
-                                        stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
-                                        style="stroke:var(--layer1, #202020)"></circle>
-                                <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M14 12v8h6"
-                                      stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)">
-                                </path>
-                            </svg>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <div class="row choices my-5">
+                <div class="col-12 col-md">
+                    <h2 class="fw-bold">New Arrivals</h2>
+                    <p>
+                        One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed
+                        into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he
+                        could see his brown belly, slightly domed and divided by arches into stiff sections
+                    </p>
+                    <div class="row mt-5">
+                        <div class="col-12 col-md-8">
+                            <ul class="row product-list list-group list-group-horizontal">
+                                <li class="col-auto list-group-item border-0">
+                                    <a href="#" class="active">
+                                        All
+                                        Products
+                                    </a>
+                                </li>
+                                <li class="col-auto list-group-item border-0"><a href="#">Chairs</a></li>
+                                <li class="col-auto list-group-item border-0"><a href="#">Books</a></li>
+                                <li class="col-auto list-group-item border-0"><a href="#">Clothes</a></li>
+                                <li class="col-auto list-group-item border-0"><a href="#">Accessories</a></li>
+                            </ul>
                         </div>
-                        <div class="text">
-                            <p class="text--dark">Free shipping & return</p>
-                            <p class="text--muted">Free Shipping over $300</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
-                        <div class="icon">
-                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" id="money-1">
-                                <path stroke-miterlimit="10" stroke="#202020" fill="none" d="M42 22a20 20 0 1 1-20 20"
-                                      data-name="layer1" stroke-linejoin="round" stroke-linecap="round"
-                                      style="stroke:var(--layer2, #202020)"></path>
-                                <circle stroke-miterlimit="10" stroke="#202020" fill="none" r="20" cy="22.001" cx="22"
-                                        data-name="layer2" stroke-linejoin="round" stroke-linecap="round"
-                                        style="stroke:var(--layer2, #202020)"></circle>
-                                <path stroke-miterlimit="10" stroke="#202020" fill="none"
-                                      d="M26.949 17a5.006 5.006 0 0 0-4.932-4.167c-2.762 0-5 1.822-5 4.583s2.5 4.012 5 4.584 5 1.822 5 4.584-2.238 4.584-5 4.584a5 5 0 0 1-5-5"
-                                      stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #202020)">
-                                </path>
-                                <path d="M22.018 12.832v-2.831m0 23.998v-2.832" stroke-miterlimit="10" stroke="#202020"
-                                      fill="none" data-name="layer2" stroke-linejoin="round" stroke-linecap="round"
-                                      style="stroke:var(--layer2, #202020)"></path>
-                                <path d="M42 53.999v-2.834" stroke-miterlimit="10" stroke="#202020" fill="none"
-                                      data-name="layer1" stroke-linejoin="round" stroke-linecap="round"
-                                      style="stroke:var(--layer2, #202020)"></path>
-                                <path stroke-miterlimit="10" stroke="#202020" fill="none"
-                                      d="M37 46.165a5 5 0 0 0 5 5c2.762 0 5-1.822 5-4.582S44.5 42.562 42 42a9.814 9.814 0 0 1-2.887-1.1"
-                                      stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #202020)">
-                                </path>
-                                <path stroke-miterlimit="10" stroke="#202020" fill="none"
-                                      d="M46.93 37a4.993 4.993 0 0 0-1.535-2.835" data-name="layer1" stroke-linejoin="round"
-                                      stroke-linecap="round" style="stroke:var(--layer2, #202020)"></path>
-                            </svg>
-                        </div>
-                        <div class="text">
-                            <p class="text--dark">Money back guarantee</p>
-                            <p class="text--muted">30 Days Money Back Guarantee</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="special-price-1">
-                                <circle data-name="layer2" cx="21" cy="23" r="5" fill="none" stroke="#202020"
-                                        stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
-                                        style="stroke:var(--layer1, #202020)"></circle>
-                                <circle data-name="layer2" cx="43" cy="41" r="5" fill="none" stroke="#202020"
-                                        stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
-                                        style="stroke:var(--layer1, #202020)"></circle>
-                                <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
-                                      d="M46 18L18 46" stroke-linejoin="round" stroke-linecap="round"
-                                      style="stroke:var(--layer1, #202020)"></path>
-                                <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
-                                      d="M32 4.5L38 2l4.5 4.6H49l2.5 5.9 5.9 2.5v6.5L62 26l-2.5 6 2.5 6-4.6 4.5V49l-5.9 2.5-2.5 5.9h-6.5L38 62l-6-2.5-6 2.5-4.5-4.6H15l-2.5-5.9L6.6 49v-6.5L2 38l2.5-6L2 26l4.6-4.5V15l5.9-2.5L15 6.6h6.5L26 2l6 2.5z"
-                                      stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)">
-                                </path>
-                            </svg>
-                        </div>
-                        <div class="text">
-                            <p class="text--dark">Best prices</p>
-                            <p class="text--muted">Always the best prices</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="customer-support-1">
-                                <path data-name="layer2"
-                                      d="M24 40.5V44c0 2 .6 5-10.4 7A14.6 14.6 0 0 0 2 62h59a14.3 14.3 0 0 0-11.4-11C39 49 40 46 40 44v-5"
-                                      fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
-                                      stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
-                                <path data-name="layer1"
-                                      d="M46.4 33H51a3.3 3.3 0 0 0 3-3v-7a3.3 3.3 0 0 0-3-3h-5m-28 0h-6a3.3 3.3 0 0 0-3 3v7a3.3 3.3 0 0 0 3 3h5.2"
-                                      fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
-                                      stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
-                                <path data-name="layer2"
-                                      d="M46 18C26 18 26 4 26 4s1 12-8 15m18 43l9.6-12m-27.7 0L28 62M17.9 50a10.8 10.8 0 0 1-4.9-4c4-4 5-20 5-20m28 0s0 16 4 20a10.7 10.7 0 0 1-4.7 4"
-                                      fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
-                                      stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
-                                <path data-name="layer2"
-                                      d="M26 42c-4.7-2.9-8-8.8-8-16V16C18 5.6 25.4 2 32 2s14 3.6 14 14v16c0 4-4 7-6 7"
-                                      fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
-                                      stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
-                                <path data-name="layer1"
-                                      d="M40 38.9a2.9 2.9 0 0 0-2.9-2.9h-2.2a2.9 2.9 0 0 0-2.9 2.9 3 3 0 0 0 2.9 3.1H37a3 3 0 0 0 3-3.1z"
-                                      fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
-                                      stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
-                            </svg>
-                        </div>
-                        <div class="text">
-                            <p class="text--dark">020-800-456-747</p>
-                            <p class="text--muted">24/7 Available Support</p>
+                        <div class="col-12 col-md-4 d-flex justify-content-start justify-content-md-end">
+                            <a href="" class="btn head-link"><small>All Products</small></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-    </main>
-  
+            <div class="row my-5">
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img">
+                            <img src="~/images/product-1.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover1.jpg" class="hoveredimage" alt="product" />
+                            <small class="fresh">Fresh</small>
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Norwegg Chair</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-2.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover2.jpg" class="hoveredimage" alt="product" />
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Book</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-3.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover3.jpg" class="hoveredimage" alt="product" />
+                            <small class="sale">Sale</small>
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Another chair</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-4.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover4.jpg" class="hoveredimage" alt="product" />
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Your new chair</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-5.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover5.jpg" class="hoveredimage" alt="product" />
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Clock</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-6.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover6.jpg" class="hoveredimage" alt="product" />
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Clock</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-7.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover7.jpg" class="hoveredimage" alt="product" />
+                            <small class="sold">Sold out</small>
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Accessory box</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-3">
+                    <div class="product-card">
+                        <div class="product-card__img position-relative">
+                            <img src="~/images/product-8.jpg" class="firstimage" alt="product" />
+                            <img src="~/images/product-hover8.jpg" class="hoveredimage" alt="product" />
+                            <div class="addbasket">
+                                <a class="btn">Add to cart</a>
+                                <div class="addbasket__icons">
+                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card__body">
+                            <a class="fw-bolder">Beige</a>
+                            <div class="price">
+                                <small>$40.00</small>
+                                <div class="stars">
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class=""><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                    <span class="gray"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="summer" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="svg-box">
+                        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" id="blob-shape">
+                            <path d="M419.4 180.5c43 43.1 90.8 81.3 90.2 118.9C509 337 460 374 417 416c-43 42-80 89-124.9 96.9-44.9 7.9-97.7-23.3-141.2-65.3-43.5-42-77.7-94.8-83.8-153.7-6.2-59 15.8-124 59.3-167.2 43.5-43.1 108.5-64.4 160.2-51 51.6 13.4 89.8 61.6 132.8 104.8z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="slogan">
+                        <h1 class="slogan__heading">Summer Sales</h1>
+                        <p class="slogan__text">Our biggest sales this year — up to 60% off!</p>
+                        <a href="" class="btn slogan__btn">start shopping</a>
+                    </div>
+                    <img src="~/images/chair-transparent.png" width="250" height="450" class="d-none d-md-block"
+                         alt="chair-transparent" />
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="delivery-time-1">
+                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                  d="M62 46v-5l-8-7h-8" stroke-linejoin="round" stroke-linecap="round"
+                                  style="stroke:var(--layer1, #202020)"></path>
+                            <circle data-name="layer2" cx="24" cy="54" r="4" fill="none" stroke="#202020"
+                                    stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
+                                    style="stroke:var(--layer1, #202020)"></circle>
+                            <circle data-name="layer2" cx="54" cy="54" r="4" fill="none" stroke="#202020"
+                                    stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
+                                    style="stroke:var(--layer1, #202020)"></circle>
+                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                  d="M50 54H28m-8 0h-4v-8h46v8h-4M24.5 24H46v22m-30 0V29.8M2 38h6m-2 8h2"
+                                  stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)">
+                            </path>
+                            <circle data-name="layer1" cx="14" cy="18" r="12" fill="none" stroke="#202020"
+                                    stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
+                                    style="stroke:var(--layer1, #202020)"></circle>
+                            <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M14 12v8h6"
+                                  stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p class="text--dark">Free shipping & return</p>
+                        <p class="text--muted">Free Shipping over $300</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
+                    <div class="icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" id="money-1">
+                            <path stroke-miterlimit="10" stroke="#202020" fill="none" d="M42 22a20 20 0 1 1-20 20"
+                                  data-name="layer1" stroke-linejoin="round" stroke-linecap="round"
+                                  style="stroke:var(--layer2, #202020)"></path>
+                            <circle stroke-miterlimit="10" stroke="#202020" fill="none" r="20" cy="22.001" cx="22"
+                                    data-name="layer2" stroke-linejoin="round" stroke-linecap="round"
+                                    style="stroke:var(--layer2, #202020)"></circle>
+                            <path stroke-miterlimit="10" stroke="#202020" fill="none"
+                                  d="M26.949 17a5.006 5.006 0 0 0-4.932-4.167c-2.762 0-5 1.822-5 4.583s2.5 4.012 5 4.584 5 1.822 5 4.584-2.238 4.584-5 4.584a5 5 0 0 1-5-5"
+                                  stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #202020)">
+                            </path>
+                            <path d="M22.018 12.832v-2.831m0 23.998v-2.832" stroke-miterlimit="10" stroke="#202020"
+                                  fill="none" data-name="layer2" stroke-linejoin="round" stroke-linecap="round"
+                                  style="stroke:var(--layer2, #202020)"></path>
+                            <path d="M42 53.999v-2.834" stroke-miterlimit="10" stroke="#202020" fill="none"
+                                  data-name="layer1" stroke-linejoin="round" stroke-linecap="round"
+                                  style="stroke:var(--layer2, #202020)"></path>
+                            <path stroke-miterlimit="10" stroke="#202020" fill="none"
+                                  d="M37 46.165a5 5 0 0 0 5 5c2.762 0 5-1.822 5-4.582S44.5 42.562 42 42a9.814 9.814 0 0 1-2.887-1.1"
+                                  stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #202020)">
+                            </path>
+                            <path stroke-miterlimit="10" stroke="#202020" fill="none"
+                                  d="M46.93 37a4.993 4.993 0 0 0-1.535-2.835" data-name="layer1" stroke-linejoin="round"
+                                  stroke-linecap="round" style="stroke:var(--layer2, #202020)"></path>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p class="text--dark">Money back guarantee</p>
+                        <p class="text--muted">30 Days Money Back Guarantee</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="special-price-1">
+                            <circle data-name="layer2" cx="21" cy="23" r="5" fill="none" stroke="#202020"
+                                    stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
+                                    style="stroke:var(--layer1, #202020)"></circle>
+                            <circle data-name="layer2" cx="43" cy="41" r="5" fill="none" stroke="#202020"
+                                    stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round"
+                                    style="stroke:var(--layer1, #202020)"></circle>
+                            <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                  d="M46 18L18 46" stroke-linejoin="round" stroke-linecap="round"
+                                  style="stroke:var(--layer1, #202020)"></path>
+                            <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10"
+                                  d="M32 4.5L38 2l4.5 4.6H49l2.5 5.9 5.9 2.5v6.5L62 26l-2.5 6 2.5 6-4.6 4.5V49l-5.9 2.5-2.5 5.9h-6.5L38 62l-6-2.5-6 2.5-4.5-4.6H15l-2.5-5.9L6.6 49v-6.5L2 38l2.5-6L2 26l4.6-4.5V15l5.9-2.5L15 6.6h6.5L26 2l6 2.5z"
+                                  stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p class="text--dark">Best prices</p>
+                        <p class="text--muted">Always the best prices</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 py-4 d-flex align-items-center">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="customer-support-1">
+                            <path data-name="layer2"
+                                  d="M24 40.5V44c0 2 .6 5-10.4 7A14.6 14.6 0 0 0 2 62h59a14.3 14.3 0 0 0-11.4-11C39 49 40 46 40 44v-5"
+                                  fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
+                                  stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+                            <path data-name="layer1"
+                                  d="M46.4 33H51a3.3 3.3 0 0 0 3-3v-7a3.3 3.3 0 0 0-3-3h-5m-28 0h-6a3.3 3.3 0 0 0-3 3v7a3.3 3.3 0 0 0 3 3h5.2"
+                                  fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
+                                  stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+                            <path data-name="layer2"
+                                  d="M46 18C26 18 26 4 26 4s1 12-8 15m18 43l9.6-12m-27.7 0L28 62M17.9 50a10.8 10.8 0 0 1-4.9-4c4-4 5-20 5-20m28 0s0 16 4 20a10.7 10.7 0 0 1-4.7 4"
+                                  fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
+                                  stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+                            <path data-name="layer2"
+                                  d="M26 42c-4.7-2.9-8-8.8-8-16V16C18 5.6 25.4 2 32 2s14 3.6 14 14v16c0 4-4 7-6 7"
+                                  fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
+                                  stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+                            <path data-name="layer1"
+                                  d="M40 38.9a2.9 2.9 0 0 0-2.9-2.9h-2.2a2.9 2.9 0 0 0-2.9 2.9 3 3 0 0 0 2.9 3.1H37a3 3 0 0 0 3-3.1z"
+                                  fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round"
+                                  stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p class="text--dark">020-800-456-747</p>
+                        <p class="text--muted">24/7 Available Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
 
