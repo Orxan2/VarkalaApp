@@ -251,6 +251,7 @@ body {
                     color: $contact-text;
                     font-weight: 600;
                     transition: color 0.3s linear;
+                    z-index:2;
                     &:hover {
                         color: $contact-hover-text;
                         text-decoration: underline;

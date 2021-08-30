@@ -21,7 +21,8 @@ namespace VarkalaApp.Controllers
         {
             ViewModel VM = new ViewModel
             {
-                Sliders =await _context.Sliders.ToListAsync()
+                Sliders =await _context.Sliders.ToListAsync(),
+                Products = await _context.Products.ToListAsync()
             };
             return View(VM);
         }

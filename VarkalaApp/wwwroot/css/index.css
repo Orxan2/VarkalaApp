@@ -14,9 +14,12 @@ a {
 
 .mycollapse {
   transform: rotate(0deg) !important; }
+.pt-75{
+    padding-top:75px !important;
+}
 
 @keyframes slide-up {
-  from {
+    from {
     opacity: 0;
     transform: translateY(50%); }
   to {
@@ -460,9 +463,11 @@ body section#products .choices p {
   line-height: 1.7; }
 
 body section#products .product-list .list-group-item a {
-  color: #868e96;
-  font-weight: 600;
-  transition: color 0.3s linear; }
+    color: #868e96;
+    font-weight: 600;
+    transition: color 0.3s linear;
+    z-index: 2;
+}
   body section#products .product-list .list-group-item a:hover {
     color: #212529;
     text-decoration: underline; }

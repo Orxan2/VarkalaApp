@@ -9,5 +9,6 @@ namespace VarkalaApp.ViewModels
     public class ViewModel
     {
         public List<Slider> Sliders { get; set; }
+        public List<Product> Products { get; set; }
     }
 }

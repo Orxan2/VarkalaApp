@@ -212,7 +212,7 @@
                         into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he
                         could see his brown belly, slightly domed and divided by arches into stiff sections
                     </p>
-                    <div class="row mt-5">
+                    <div class="row mt-5 pt-75">
                         <div class="col-12 col-md-8">
                             <ul class="row product-list list-group list-group-horizontal">
                                 <li class="col-auto list-group-item border-0">
@@ -235,233 +235,38 @@
             </div>
 
             <div class="row my-5">
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img">
-                            <img src="~/images/product-1.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover1.jpg" class="hoveredimage" alt="product" />
-                            <small class="fresh">Fresh</small>
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                @foreach (Product product in Model.Products)
+                {
+                    <div class="col-6 col-md-4 col-xl-3">
+                        <div class="product-card position-relative">
+                            <div class="product-card__img">
+                                <img src="~/images/@product.FirstImage" class="firstimage" alt="product" />
+                                <img src="~/images/@product.SecondImage" class="hoveredimage" alt="product" />
+                                <small class="text-capitalize @product.ProductType">@product.ProductType</small>
+                                <div class="addbasket">
+                                    <a class="btn">Add to cart</a>
+                                    <div class="addbasket__icons">
+                                        <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
+                                        <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Norwegg Chair</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-2.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover2.jpg" class="hoveredimage" alt="product" />
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Book</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
+                            <div class="product-card__body">
+                                <a class="fw-bolder">@product.ProdcutTitle</a>
+                                <div class="price">
+                                    <small>$@product.ProductPrice</small>
+                                    <div class="stars">
+                                        <span class=""><i class="fas fa-star"></i></span>
+                                        <span class=""><i class="fas fa-star"></i></span>
+                                        <span class=""><i class="fas fa-star"></i></span>
+                                        <span class="gray"><i class="fas fa-star"></i></span>
+                                        <span class="gray"><i class="fas fa-star"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-3.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover3.jpg" class="hoveredimage" alt="product" />
-                            <small class="sale">Sale</small>
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Another chair</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-4.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover4.jpg" class="hoveredimage" alt="product" />
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Your new chair</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-5.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover5.jpg" class="hoveredimage" alt="product" />
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Clock</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-6.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover6.jpg" class="hoveredimage" alt="product" />
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Clock</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-7.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover7.jpg" class="hoveredimage" alt="product" />
-                            <small class="sold">Sold out</small>
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Accessory box</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-xl-3">
-                    <div class="product-card">
-                        <div class="product-card__img position-relative">
-                            <img src="~/images/product-8.jpg" class="firstimage" alt="product" />
-                            <img src="~/images/product-hover8.jpg" class="hoveredimage" alt="product" />
-                            <div class="addbasket">
-                                <a class="btn">Add to cart</a>
-                                <div class="addbasket__icons">
-                                    <a class="btn px-0 mx-2"><i class="far fa-heart"></i></a>
-                                    <a class="btn px-0 mx-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card__body">
-                            <a class="fw-bolder">Beige</a>
-                            <div class="price">
-                                <small>$40.00</small>
-                                <div class="stars">
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class=""><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                    <span class="gray"><i class="fas fa-star"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </section>
