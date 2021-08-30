@@ -1,0 +1,563 @@
+// @import 'common/colors';
+// @import 'common/reset';
+// @import 'common/animations';
+@import "common/layout";
+
+body {
+    // overflow-x: hidden;
+   
+    #carouselExampleIndicators {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 100px 0;
+
+        .carousel-indicators {
+            button {
+                height: 5px;
+                border-radius: 50%;
+                width: 5px;
+                background-color: $contact-text;
+            }
+            .active {
+                background-color: $summer-color;
+                transform: scale(2);
+            }
+        }
+
+        .carousel-inner {
+            z-index: 1;
+
+            .content {
+                width: 50%;
+                .shop-text {
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+                .shop-small-text {
+                    color: $contact-text;
+                    font-weight: 600;
+                }
+                .shop-title {
+                    font-size: 72px;
+                    font-weight: 700;
+                }
+                .shop-btn {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    letter-spacing: 5px;
+                    border: 1px solid $summer-color;
+                    border-radius: 0;
+                    transition: all 0.2s linear;
+                    align-self: center;
+                    color: $summer-color;
+                    margin-top: 3rem;
+                    z-index: 1;
+
+                    &:hover {
+                        background-color: $summer-color;
+                        color: white;
+                    }
+                }
+            }
+            .background-container {
+                position: relative;
+                width: 50%;
+                img {
+                    position: relative;
+                    z-index: 1;
+                }
+                svg {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    height: 100%;
+                }
+
+                &--gray {
+                    path {
+                        fill: $home-imageShadowPath-color;
+                    }
+                }
+                &--pink {
+                    path {
+                        fill: $home-imageShadowPath2-color;
+                    }
+                }
+                &--gold {
+                    path {
+                        fill: $home-imageShadowPath3-color;
+                    }
+                }
+            }
+        }
+
+        .big-path {
+            position: absolute;
+            z-index: 0;
+            width: 700px;
+            left: -200px;
+            top: -200px;
+
+            path {
+                width: 700px;
+                fill: $home-bigPath-color;
+                // height: 700px;
+            }
+        }
+    }
+
+    section#populars {
+        .heading{
+            &__text{
+                color: $contact-text;
+                font-size: 19px;
+
+                &--space{
+                    letter-spacing: 2px;
+                }
+            }
+           
+        }
+        .popular-card {
+            transition: transform 0.2s linear;
+            overflow: hidden;
+            &__body {
+                &--transform {
+                    transform: translateX(25%);
+                }
+            }
+            &__title {
+                font-weight: 700;
+            }
+            &__text {
+                color: $contact-text;
+                font-weight: 600;
+            }
+            &__btn {
+                padding: 0;
+                letter-spacing: 4px;
+                color: $contact-hover-text;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+    section#time {
+        background-color: $bg-gray;
+
+        .row {
+            min-height: 500px;
+
+            // overflow-x: clip;
+            fill: $summer-color;
+            position: relative;
+
+            svg {
+                position: absolute;
+                width: 500px;
+                left: -297px;
+                top: 0;
+                transform: rotate(156deg);
+            }
+
+            .discount {
+                // width: 500px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                &__text {
+                    color: $btn-red;
+                    font-size: 17px;
+                    letter-spacing: 3px;
+                    font-weight: 700;
+                    z-index: 1;
+                }
+                &__heading {
+                    font-size: 40px;
+                    font-weight: 700;
+                    z-index: 1;
+                }
+                &__price {
+                    display: flex;
+                    z-index: 1;
+                    del,
+                    span {
+                        color: $contact-text;
+                        font-weight: 600;
+                    }
+                }
+                &__percent {
+                    z-index: 1;
+                    background-color: $btn-red;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-shadow: 0 0 2px white;
+                }
+                &__time {
+                    height: 100px;
+                    // max-height: 200px;
+                    width: 100%;
+                    z-index: 1;
+                }
+                &__btn {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    letter-spacing: 2px;
+                    border: 1px solid $contact-hover-text;
+                    border-radius: 0;
+                    transition: all 0.2s linear;
+
+                    z-index: 1;
+
+                    &:hover {
+                        background-color: $contact-hover-text;
+                        color: white;
+                    }
+                }
+            }
+
+            // img {
+            //     left: 70%;
+            //     top: 10%;
+            //     position: absolute;
+            // }
+        }
+    }
+
+    section#products {
+        .choices {
+            p {
+                font-weight: 600;
+                font-size: 19px;
+                color: $contact-text;
+                line-height: 1.7;
+            }
+        }
+        .product-list {
+            .list-group-item {
+                a {
+                    color: $contact-text;
+                    font-weight: 600;
+                    transition: color 0.3s linear;
+                    &:hover {
+                        color: $contact-hover-text;
+                        text-decoration: underline;
+                    }
+                    &:focus {
+                        color: $contact-hover-text;
+                    }
+                }
+                .active {
+                    color: $contact-hover-text;
+                }
+            }
+        }
+        .head-link {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: $summer-color;
+            font-weight: 700;
+            &:hover {
+                color: $head-link-hovered;
+                text-decoration: underline;
+            }
+        }
+
+        .product-card {
+            cursor: pointer;
+            animation: zoom-in 0.5s ease-out;
+            animation-play-state: paused;
+
+            &__img {
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+                .firstimage {
+                    position: relative;
+                    z-index: 1;
+                    transition: opacity 0.5s linear;
+                }
+                .hoveredimage {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                small {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    margin: 0.5rem;
+                    border-radius: 0.5rem;
+                    padding: 0 0.5rem;
+                    font-weight: 700;
+                    z-index: 1;
+                    cursor: text;
+                    text-shadow: 0 0 1px white;
+                }
+                .fresh {
+                    background-color: $fresh-layout;
+                    color: white;
+                }
+                .sale {
+                    background-color: $summer-color;
+                    color: $contact-hover-text;
+                }
+                .sold {
+                    background-color: $contact-hover-text;
+                    color: white;
+                }
+                .addbasket {
+                    cursor: default;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: absolute;
+                    bottom: 0;
+                    background: white;
+                    width: 100%;
+                    z-index: 1;
+                    // animation: slide-down .3s;
+                    opacity: 0;
+
+                    & > a {
+                        color: $contact-hover-text;
+                        font-weight: 600;
+                        transition: color 0.3s linear;
+                        &:hover {
+                            text-decoration: underline;
+                            color: #000;
+                        }
+                    }
+                    &__icons {
+                        a {
+                            font-size: 24px;
+                            color: $contact-hover-text;
+                            transition: color 0.3s linear;
+
+                            &:hover {
+                                color: $summer-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__body {
+                a {
+                    margin: 0;
+                    line-height: 2.5;
+                    color: $contact-hover-text;
+                    transition: color 0.3s linear;
+                    cursor: pointer;
+                    font-weight: 900;
+
+                    &:hover {
+                        color: black;
+                        text-decoration: underline;
+                    }
+                }
+                .price {
+                    display: flex;
+                    justify-content: space-between;
+                    overflow: hidden;
+                    small {
+                        color: $copyright-color;
+                        font-weight: 700;
+                        line-height: 2.5;
+                    }
+
+                    .stars {
+                        // animation: slide-down .3s;
+                        opacity: 0;
+
+                        span {
+                            i {
+                                font-size: 12px;
+                                color: $summer-color;
+                            }
+                        }
+                        .gray {
+                            i {
+                                color: $contact-text;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // &:hover {
+            //     .addbasket {
+            //         animation: slide-up 0.3s;
+            //         opacity: 1;
+            //     }
+            //     .stars{
+            //         animation: slide-up 0.3s;
+            //         opacity: 1;
+            //     }
+            // }
+        }
+    }
+    section#summer {       
+        .row {
+            height: 400px;
+            background-color: $summer-layout;
+            overflow-x: clip;
+            fill: $summer-color;
+            position: relative;
+
+            svg {
+                position: absolute;
+                width: 500px;
+                left: -300px;
+                top: -100px;
+            }
+
+            .slogan {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                &__heading {
+                    font-size: 70px;
+                    font-weight: 700;
+                    align-self: center;
+                    z-index: 1;
+                    text-align: center;
+                }
+                &__text {
+                    font-size: 30px;
+                    font-weight: 600;
+                    z-index: 1;
+                    text-align: center;
+                }
+                &__btn {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    letter-spacing: 4px;
+                    border: 1px solid $contact-hover-text;
+                    border-radius: 0;
+                    transition: all 0.2s linear;
+                    align-self: center;
+
+                    z-index: 1;
+
+                    &:hover {
+                        background-color: $contact-hover-text;
+                        color: white;
+                    }
+                }
+            }
+
+            img {
+                right: 0;
+                top: 0;
+                position: absolute;
+                transform: translateY(-50px);
+            }
+        }
+    }
+  
+   
+}
+.myDropdownList{
+    display: none;
+
+    form{
+        input{
+            transition: border .3s linear;
+            border-bottom: 1px solid $contact-text !important;
+            border-radius: 0;
+            &:focus{
+                box-shadow: none;
+            }            
+            &:hover{
+                border-bottom: 1px solid #000 !important;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 575px) {
+    #carouselExampleIndicators {    
+
+        
+             .background-container {
+                 width: 100% !important;
+                 display: flex !important;
+                 justify-content: center !important;             
+             }
+         }    
+         section#time {
+            .discount {
+                &__time {
+                    height: 200px !important;
+                }
+            }
+        }  
+     }
+   
+
+@media only screen and (max-width: 767px) {  
+    #carouselExampleIndicators {     
+
+        .content {
+                 width: 100% !important; 
+               
+                 .shop-title {
+                     font-size: 36px !important;
+                     font-weight: 400 !important;
+                 }               
+             }  
+             .background-container {
+               img{
+                   width: 100% !important;
+                   height: 100% !important;
+               }     
+               svg {    
+                   top: 0 !important;           
+                right: -50% !important;
+               
+            }     
+            }          
+         }   
+    section#summer {
+        .slogan {
+            &__heading {
+                font-size: 45px !important;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 991px) {  
+    #carouselExampleIndicators {     
+
+        
+             .background-container {
+                 
+               svg {  
+                     
+                   top: 0 !important;           
+                right: auto !important;
+               
+            }     
+            }          
+         }   
+  
+}
